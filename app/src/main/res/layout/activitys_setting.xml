@@ -1,0 +1,64 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F5F8">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="21dp"
+            android:drawableStart="@drawable/ic_back"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Settings"
+            android:textColor="#FF222222"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:drawableTop="@drawable/logo_round"
+            android:drawablePadding="16dp"
+            android:gravity="center"
+            android:text="V1.0.0"
+            android:textColor="#FF9AAAB6"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atv_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atv_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/bg_pp"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawableEnd="@drawable/ic_right"
+            android:drawablePadding="12dp"
+            android:padding="17dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Privacy Policy"
+            android:textColor="#FF222222"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

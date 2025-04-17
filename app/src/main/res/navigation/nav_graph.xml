@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/pressureFragment">
+
+    <!-- Main Fragment -->
+    <fragment
+        android:id="@+id/pressureFragment"
+        android:name="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.pressure.PressureFragment"
+        android:label="Pressure Fragment"
+        tools:layout="@layout/fragment_pressure">
+        <action
+            android:id="@+id/action_mainFragment_to_sugarFragment"
+            app:destination="@id/sugarFragment" />
+    </fragment>
+
+    <!-- Second Fragment -->
+    <fragment
+        android:id="@+id/sugarFragment"
+        android:name="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.sugar.SugarFragment"
+        android:label="Sugar Fragment"
+        tools:layout="@layout/fragment_sugar">
+        <action
+            android:id="@+id/action_sugarFragment_to_mainFragment"
+            app:destination="@id/pressureFragment" />
+    </fragment>
+
+
+</navigation>

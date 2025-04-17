@@ -1,0 +1,586 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.MainViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="colorState"
+            type="String"
+            android:value="NORMAL" />
+
+        <variable
+            name="sugarUnit"
+            type="String"
+            android:value="DL" />
+
+        <variable
+            name="sugarCurrentState"
+            type="String"
+            android:value="NORMAL" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F5F8">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="21dp"
+            android:drawableStart="@drawable/ic_back"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Record"
+            android:textColor="#FF222222"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Delete"
+            android:textColor="#FFF03B3B"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_record"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_record" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:background="#E0E9EF"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_record">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kindly input your bp rate information"
+                android:textColor="#FF222222"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:text="Datetime:2023/04/24 23:35"
+                android:textColor="#FF9EACB5"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_pp"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:layout_editor_absoluteX="20dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_sugar_edit"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_edit_ic" />
+
+                <EditText
+                    android:id="@+id/ed_sugar_num"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:maxLength="6"
+                    android:inputType="numberDecimal"
+                    android:background="@null" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_sugar_dw"
+                    android:drawableEnd="@drawable/icon_toggle"
+                    android:drawablePadding="8dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="9dp"
+                    android:text="@{sugarUnit == `DL`?`Mg/dl`:`Mmol/l`}"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tap to change unit"
+                android:textColor="#FF999999"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/img_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_pp"
+                    app:layout_constraintBottom_toTopOf="@+id/img_save"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_bg_detail"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:layout_editor_absoluteX="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_sugar_state_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:fontFamily="@font/poppins_black"
+                        android:text="NORMAL"
+                        android:textColor="#3AC34A"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view_hypotension"
+                        android:layout_width="66dp"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@{colorState ==`LOW`?@drawable/bg_hypotension2:@drawable/bg_hypotension}"
+                        app:layout_constraintEnd_toStartOf="@+id/view_normal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_num" />
+
+                    <ImageView
+                        android:id="@+id/img_hypotension"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_hypotension_up"
+                        android:visibility="@{colorState ==`LOW`?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toEndOf="@+id/view_hypotension"
+                        app:layout_constraintStart_toStartOf="@+id/view_hypotension"
+                        app:layout_constraintTop_toBottomOf="@+id/view_hypotension" />
+
+                    <View
+                        android:id="@+id/view_normal"
+                        android:layout_width="66dp"
+                        android:layout_height="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@{colorState ==`NORMAL`?@drawable/bg_normal2:@drawable/bg_normal}"
+                        app:layout_constraintEnd_toStartOf="@+id/view_stage1"
+                        app:layout_constraintStart_toEndOf="@+id/view_hypotension"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_num" />
+
+                    <ImageView
+                        android:id="@+id/img_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_normal_up"
+                        android:visibility="@{colorState ==`NORMAL`?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toEndOf="@+id/view_normal"
+                        app:layout_constraintStart_toStartOf="@+id/view_normal"
+                        app:layout_constraintTop_toBottomOf="@+id/view_normal" />
+
+
+                    <View
+                        android:id="@+id/view_stage1"
+                        android:layout_width="66dp"
+                        android:layout_height="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@{colorState ==`PREDIABETES`?@drawable/bg_stage1_2:@drawable/bg_stage1}"
+                        app:layout_constraintEnd_toStartOf="@+id/view_crisis"
+                        app:layout_constraintStart_toEndOf="@+id/view_normal"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_num" />
+
+                    <ImageView
+                        android:id="@+id/img_stage1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_stage1_up"
+                        android:visibility="@{colorState ==`PREDIABETES`?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toEndOf="@+id/view_stage1"
+                        app:layout_constraintStart_toStartOf="@+id/view_stage1"
+                        app:layout_constraintTop_toBottomOf="@+id/view_stage1" />
+
+                    <View
+                        android:id="@+id/view_crisis"
+                        android:layout_width="66dp"
+                        android:layout_height="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@{colorState ==`DIABETES`?@drawable/bg_crisis2:@drawable/bg_crisis}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/view_stage1"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_num" />
+
+                    <ImageView
+                        android:id="@+id/img_crisis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_crisis_up"
+                        android:visibility="@{colorState ==`DIABETES`?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toEndOf="@+id/view_crisis"
+                        app:layout_constraintStart_toStartOf="@+id/view_crisis"
+                        app:layout_constraintTop_toBottomOf="@+id/view_crisis" />
+
+                    <View
+                        android:id="@+id/view_line_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="36dp"
+                        android:background="#33A7BAC8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_crisis" />
+
+                    <TextView
+                        android:id="@+id/tv_recording"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/poppins_black"
+                        android:gravity="center"
+                        android:paddingHorizontal="16dp"
+                        android:text="Recording features before measuring blood pressure"
+                        android:textColor="#FF222222"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line_2" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Scene:"
+                        android:textColor="#FF222222"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_recording" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_scene"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_sugar_type"
+                        android:drawableEnd="@drawable/icon_direction"
+                        android:drawablePadding="4dp"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="5dp"
+                        android:text="@{sugarCurrentState}"
+                        android:textColor="#FFFFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                        app:layout_constraintStart_toEndOf="@+id/textView5"
+                        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_edit_recording"
+                        android:layout_width="match_parent"
+                        android:layout_height="138dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_remo"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                        <EditText
+                            android:id="@+id/et_recording"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:gravity="start"
+                            android:hint="Notes"
+                            android:minHeight="138dp"
+                            android:maxHeight="200dp"
+                            android:scrollbars="vertical"
+                            android:inputType="textMultiLine"
+                            android:maxLength="1000"
+                            android:overScrollMode="always"
+                            android:textColor="@color/black"
+                            android:textColorHint="#FFCCCCCC"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/img_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/con_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="#99000000">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_sugar_state"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@{sugarCurrentState == `NORMAL`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_normal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Normal"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_before_meals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@{sugarCurrentState == `BEFORE_MEAL`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_before_meals"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Before meals"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_sugar_state_normal"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_before_exercise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@{sugarCurrentState == `BEFORE_EXERCISE`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_before_exercise"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Before exercise"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_normal" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_after_exercise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@{sugarCurrentState == `AFTER_EXERCISE`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_after_exercise"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="After exercise"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_sugar_state_before_exercise"
+                    app:layout_constraintStart_toEndOf="@+id/tv_sugar_state_before_exercise"
+                    app:layout_constraintTop_toTopOf="@+id/tv_sugar_state_before_exercise" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_1hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@{sugarCurrentState == `ONE_HOUR_AFTER_MEAL`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_hour"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="1 hour after meals"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_after_exercise"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@{sugarCurrentState == `ASLEEP`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_sleep"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Sleep"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_sugar_state_1hour"
+                    app:layout_constraintStart_toEndOf="@+id/tv_sugar_state_1hour"
+                    app:layout_constraintTop_toTopOf="@+id/tv_sugar_state_1hour" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_2hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@{sugarCurrentState == `TWO_HOURS_AFTER_MEAL`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_hour"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="2 hours after meals"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_sleep" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_sugar_state_before_fasting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@{sugarCurrentState == `FASTING`?@drawable/bg_sugar_item_state_check:@drawable/bg_sugar_item_state}"
+                    android:drawableStart="@drawable/image_fasting"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Fasting"
+                    android:textColor="#FF222222"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_sugar_state_2hours"
+                    app:layout_constraintStart_toEndOf="@+id/tv_sugar_state_2hours"
+                    app:layout_constraintTop_toTopOf="@+id/tv_sugar_state_2hours" />
+                <View
+                    android:id="@+id/view_dialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_sugar_state_before_fasting"
+                    android:layout_marginTop="24dp"
+                    android:background="#EEEEEE"/>
+
+                <ImageView
+                    android:id="@+id/img_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/icon_cancel"
+                    app:layout_constraintEnd_toStartOf="@+id/img_save_dialog"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_dialog" />
+
+                <ImageView
+                    android:id="@+id/img_save_dialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/icon_save"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_cancel"
+                    app:layout_constraintTop_toBottomOf="@+id/view_dialog" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
