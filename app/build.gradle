@@ -12,11 +12,11 @@ stringfog {
     mode StringFogMode.base64
 }
 android {
-    namespace 'com.blue.colored.frog.flowing.light.thirdbloodpressure'
+    namespace 'com.wind.rises.strongly.blood'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.blue.colored.frog.flowing.light.thirdbloodpressure"
+        applicationId "com.wind.rises.strongly.blood"
         minSdk 24
         targetSdk 34
         versionCode 1

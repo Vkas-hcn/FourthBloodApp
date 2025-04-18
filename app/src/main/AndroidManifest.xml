@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".god.App"
+        android:name=".show.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -25,24 +25,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.MainActivity"
+            android:name=".ui.show.MainActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".setting.SettingActivity"
+            android:name=".setting.SettingFragment"
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".main.pressure.PressureDetail"
+            android:name=".ui.pvejv.PressureDetail"
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".main.sugar.SugarDetail"
+            android:name=".ui.sver.SugarDetail"
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

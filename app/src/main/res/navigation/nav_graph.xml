@@ -7,7 +7,7 @@
     <!-- Main Fragment -->
     <fragment
         android:id="@+id/pressureFragment"
-        android:name="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.pressure.PressureFragment"
+        android:name="com.wind.rises.strongly.blood.ui.pvejv.PressureFragment"
         android:label="Pressure Fragment"
         tools:layout="@layout/fragment_pressure">
         <action
@@ -18,7 +18,7 @@
     <!-- Second Fragment -->
     <fragment
         android:id="@+id/sugarFragment"
-        android:name="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.sugar.SugarFragment"
+        android:name="com.wind.rises.strongly.blood.ui.sver.SugarFragment"
         android:label="Sugar Fragment"
         tools:layout="@layout/fragment_sugar">
         <action
@@ -26,5 +26,14 @@
             app:destination="@id/pressureFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.wind.rises.strongly.blood.setting.SettingFragment"
+        android:label="Setting Fragment"
+        tools:layout="@layout/activitys_setting">
+        <action
+            android:id="@+id/action_settingFragment_to_mainFragment"
+            app:destination="@id/pressureFragment" />
+    </fragment>
 
 </navigation>

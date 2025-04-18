@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Blood Sugar Pressure Tracker</string>
+    <string name="app_name">FourthBloodApp</string>
+    <string name="text_dl">Mg/dl</string>
+    <string name="text_l">Mmol/l</string>
 </resources>

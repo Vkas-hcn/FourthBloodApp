@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Blood Sugar"
+rootProject.name = "FourthBloodApp"
 include ':app'

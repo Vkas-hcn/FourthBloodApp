@@ -2,11 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
-        <variable
-            name="viewModel"
-            type="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.MainViewModel" />
-    </data>
+</data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,46 +15,28 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="21dp"
-            android:drawableStart="@drawable/ic_back"
             android:drawablePadding="12dp"
-            android:fontFamily="@font/poppins_black"
             android:text="Settings"
-            android:textColor="#FF222222"
-            android:textSize="18sp"
+            android:textColor="#FF000000"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/appCompatTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:drawableTop="@drawable/logo_round"
-            android:drawablePadding="16dp"
-            android:gravity="center"
-            android:text="V1.0.0"
-            android:textColor="#FF9AAAB6"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/atv_back" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/atv_privacy_policy"
+            android:id="@+id/tvPP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="48dp"
-            android:background="@drawable/bg_pp"
-            android:drawableStart="@drawable/ic_lock"
-            android:drawableEnd="@drawable/ic_right"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/new_bg_pp"
+            android:drawableStart="@mipmap/ic_pp"
+            android:drawableEnd="@mipmap/ic_be"
             android:drawablePadding="12dp"
             android:padding="17dp"
-            android:fontFamily="@font/poppins_black"
             android:text="Privacy Policy"
-            android:textColor="#FF222222"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+            android:textColor="#FF212742"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@+id/atv_back" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

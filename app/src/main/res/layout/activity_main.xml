@@ -4,38 +4,12 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="com.blue.colored.frog.flowing.light.thirdbloodpressure.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F7FBFE"
-        android:paddingHorizontal="20dp"
-        android:paddingBottom="24dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/poppins_black"
-            android:text="Blood Pressure"
-            android:textColor="#FF222222"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/img_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_setting"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+        android:background="@color/white">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
@@ -45,14 +19,19 @@
             android:layout_marginTop="14dp"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toTopOf="@+id/button_layout"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:navGraph="@navigation/nav_graph"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66000000"
+            app:layout_constraintBottom_toTopOf="@+id/button_layout" />
 
         <LinearLayout
             android:id="@+id/button_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:background="@drawable/bg_main_button"
             android:gravity="center"
             android:orientation="horizontal"
@@ -63,20 +42,29 @@
             <ImageButton
                 android:id="@+id/button_pressure_fragment"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_pressure_fragment_selector" />
 
             <ImageButton
                 android:id="@+id/button_sugar_fragment"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:layout_weight="1"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_sugar_fragment_selector" />
+
+            <ImageButton
+                android:id="@+id/but_setting"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_setting_selector" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

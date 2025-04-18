@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="154dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_1"
-    android:paddingBottom="8dp"
-    android:layout_margin="6dp">
+    android:background="@drawable/new_bg_item_pre"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="20dp"
+    android:layout_marginBottom="14dp">
 
-    <ImageView
+    <TextView
         android:id="@+id/img_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/icon_edit"
+        android:background="@drawable/bg_edit"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="6dp"
+        android:text="Edit"
+        android:textColor="#FFFFFFFF"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,67 +25,56 @@
         android:id="@+id/img_item_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:src="@drawable/icon_normal"
+        android:src="@drawable/circle_6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_item_state"
-        android:layout_width="130dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:maxLines="2"
-        android:fontFamily="@font/poppins_black"
-        android:text="Normal"
-        android:textColor="#FF4EA9FF"
+        android:layout_marginStart="6dp"
+        android:text="Hypertension Crisis"
+        android:textColor="#FFFF364A"
         android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_item_state" />
-
-    <View
-        android:id="@+id/view_line"
-        android:layout_width="74dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:background="#1A000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_item_state" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_item_state"
+        app:layout_constraintStart_toEndOf="@+id/img_item_state"
+        app:layout_constraintTop_toTopOf="@+id/img_item_state" />
 
     <TextView
         android:id="@+id/tv_item_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="2024-05-24"
-        android:textColor="#FF9AAAB6"
-        android:textSize="12sp"
+        android:textColor="#FF686868"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_line" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_state" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:background="@drawable/bg_pp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/new_bg_item_1"
         android:padding="9dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_item_date">
+
 
         <TextView
             android:id="@+id/tv_sys"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
-            android:text="Sys"
-            android:textColor="#FF9AAAB6"
+            android:text="Systolic"
+            android:textColor="#FF212742"
             android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_dia"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,58 +82,90 @@
             android:id="@+id/tv_num_sys"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
             android:text="108"
-            android:textColor="#FF222222"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_sys"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_sys" />
+            android:textColor="#7C70FF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_sys"
+            app:layout_constraintStart_toStartOf="@+id/tv_sys"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sys" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mmhg"
+            android:textColor="#FF686868"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_num_sys"
+            app:layout_constraintStart_toStartOf="@+id/tv_num_sys"
+            app:layout_constraintTop_toBottomOf="@+id/tv_num_sys" />
 
         <TextView
             android:id="@+id/tv_dia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
-            android:text="Dia"
-            android:textColor="#FF9AAAB6"
+            android:text="Diastolic"
+            android:textColor="#FF212742"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sys" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_pul"
+            app:layout_constraintStart_toEndOf="@+id/tv_sys"
+            app:layout_constraintTop_toTopOf="@+id/tv_sys" />
 
         <TextView
             android:id="@+id/tv_num_dia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
             android:text="108"
-            android:textColor="#FF222222"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_dia"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_dia" />
+            android:textColor="#7C70FF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_dia"
+            app:layout_constraintStart_toStartOf="@+id/tv_dia"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dia" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mmhg"
+            android:textColor="#FF686868"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_num_dia"
+            app:layout_constraintStart_toStartOf="@+id/tv_num_dia"
+            app:layout_constraintTop_toBottomOf="@+id/tv_num_dia" />
 
         <TextView
             android:id="@+id/tv_pul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
-            android:text="Pul"
-            android:textColor="#FF9AAAB6"
+            android:text="Pulse"
+            android:textColor="#FF212742"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dia" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_dia"
+            app:layout_constraintTop_toTopOf="@+id/tv_dia" />
 
         <TextView
             android:id="@+id/tv_num_pul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
             android:text="108"
-            android:textColor="#FF222222"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_pul"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_pul" />
+            android:textColor="#7C70FF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_pul"
+            app:layout_constraintStart_toStartOf="@+id/tv_pul"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pul" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bpm"
+            android:textColor="#FF686868"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_num_pul"
+            app:layout_constraintStart_toStartOf="@+id/tv_num_pul"
+            app:layout_constraintTop_toBottomOf="@+id/tv_num_pul" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
